@@ -26,6 +26,7 @@
 				}
 			},
 			componentUpdated: function(el) {
+				console.log("vue-scroll-keep-log");
 				var i, len, pos, target, targets;
 				targets = el.querySelectorAll('[data-vue-keep-scroll-position]');
 				if (targets.length > 0) {
