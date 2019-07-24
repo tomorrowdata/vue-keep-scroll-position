@@ -24,6 +24,24 @@
 						el.scrollTop = pos[1];
 					}
 				}
+			},
+			componentUpdated: function(el) {
+				var i, len, pos, target, targets;
+				targets = el.querySelectorAll('[data-vue-keep-scroll-position]');
+				if (targets.length > 0) {
+					for (i = 0, len = targets.length; i < len; i++) {
+						target = targets[i];
+						pos = target.getAttribute('data-vue-keep-scroll-position').split('-');
+						target.scrollLeft = pos[0];
+						target.scrollTop = pos[1];
+					}
+				} else {
+					if (el.hasAttribute('data-vue-keep-scroll-position')) {
+						pos = el.getAttribute('data-vue-keep-scroll-position').split('-');
+						el.scrollLeft = pos[0];
+						el.scrollTop = pos[1];
+					}
+				}
 			}
 		});
 	};
